@@ -1,0 +1,810 @@
+/* ==========================================================================
+   PALETTE DE COULEURS & VARIABLES
+   ========================================================================== */
+:root {
+    --bleu-nuit: #1D2B44;
+    --bordeaux: #8B1E3F;
+    --beige-chic: #D6C6B3;
+    --ivoire-clair: #FAF7F2;
+    --dore: #D4AF37;
+    --text-sombre: #333333;
+    --blanc: #FFFFFF;
+}
+
+/* ==========================================================================
+   RÈGLES GENERALES & RESET SIMPLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--ivoire-clair);
+    color: var(--text-sombre);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Boutons réutilisables */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--bleu-nuit);
+    color: var(--blanc);
+}
+
+.btn-primary:hover {
+    background-color: var(--bordeaux);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--bordeaux);
+    border: 2px solid var(--bordeaux);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bordeaux);
+    color: var(--blanc);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--bleu-nuit);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "✦";
+    display: block;
+    font-size: 1rem;
+    color: var(--dore);
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   BARRE DE NAVIGATION (NAVBAR)
+   ========================================================================== */
+.navbar {
+    background-color: var(--blanc);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--bleu-nuit);
+    letter-spacing: 1px;
+}
+
+.logo-sparkle {
+    color: var(--dore);
+    font-size: 1.3rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--bleu-nuit);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.nav-link:hover {
+    color: var(--bordeaux);
+}
+
+.nav-link.active {
+    color: var(--bordeaux);
+    border-bottom: 2px solid var(--dore);
+}
+
+.nav-cart {
+    background-color: var(--bleu-nuit);
+    color: var(--blanc);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.nav-cart:hover {
+    background-color: var(--dore);
+    color: var(--bleu-nuit);
+}
+
+#cart-count {
+    background-color: var(--bordeaux);
+    color: var(--blanc);
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* ==========================================================================
+   PAGE D'ACCUEIL (index.html)
+   ========================================================================== */
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(29, 43, 68, 0.6), rgba(29, 43, 68, 0.4)), 
+                url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&auto=format&fit=crop&q=80') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--blanc);
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-subtitle {
+    color: var(--dore);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Univers Section */
+.univers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.univers-card {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.univers-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.univers-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(29, 43, 68, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.univers-overlay h3 {
+    color: var(--blanc);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--dore);
+    padding-bottom: 5px;
+}
+
+.univers-card:hover img {
+    transform: scale(1.08);
+}
+
+.univers-card:hover class="univers-overlay" {
+    background: rgba(139, 30, 63, 0.5);
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Vedettes Section */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.featured-item {
+    text-align: center;
+    background: var(--blanc);
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--beige-chic);
+}
+
+.featured-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.featured-item h3 {
+    font-size: 1.1rem;
+    color: var(--bleu-nuit);
+    margin-bottom: 5px;
+}
+
+.featured-item .price {
+    color: var(--bordeaux);
+    font-weight: bold;
+}
+
+/* Arguments Section */
+.arguments-section {
+    background-color: var(--bleu-nuit);
+    color: var(--blanc);
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.arguments-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.argument-box {
+    text-align: center;
+    max-width: 300px;
+    flex: 1 1 250px;
+}
+
+.argument-icon {
+    font-size: 2.5rem;
+    color: var(--dore);
+    margin-bottom: 15px;
+}
+
+.argument-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* About Section */
+.about-section {
+    background: var(--blanc);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    text-align: center;
+    max-width: 800px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Contact Section */
+.contact-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.contact-form {
+    background: var(--blanc);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--beige-chic);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--bleu-nuit);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--beige-chic);
+    border-radius: 4px;
+    background-color: var(--ivoire-clair);
+    font-family: inherit;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--bordeaux);
+}
+
+/* ==========================================================================
+   PAGE BOUTIQUE (boutique.html)
+   ========================================================================== */
+.shop-header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--blanc);
+    border-bottom: 1px solid var(--beige-chic);
+}
+
+.shop-header h1 {
+    color: var(--bleu-nuit);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.shop-header p {
+    color: #666;
+}
+
+/* Filtres et contrôles */
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.categories-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    background-color: var(--blanc);
+    border: 1px solid var(--beige-chic);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--bordeaux);
+    color: var(--bordeaux);
+}
+
+.filter-btn.active {
+    background-color: var(--bordeaux);
+    color: var(--blanc);
+    border-color: var(--bordeaux);
+}
+
+.sort-wrapper {
+    align-self: flex-end;
+}
+
+.sort-dropdown {
+    padding: 8px 12px;
+    border: 1px solid var(--beige-chic);
+    background-color: var(--blanc);
+    border-radius: 4px;
+}
+
+/* Grille produits & cartes */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* Animation d'apparition douce des cartes */
+.product-card {
+    background-color: var(--blanc);
+    border: 1px solid var(--beige-chic);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(29, 43, 68, 0.1);
+}
+
+.product-image-wrapper {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+}
+
+.product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover Description Effet Voile Doux */
+.product-hover-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(29, 43, 68, 0.85);
+    color: var(--blanc);
+    padding: 15px;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.product-card:hover .product-hover-desc {
+    transform: translateY(0);
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-cat {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    color: var(--bleu-nuit);
+    margin-bottom: 10px;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--bordeaux);
+}
+
+.add-to-cart-btn {
+    background-color: var(--bleu-nuit);
+    color: var(--blanc);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--dore);
+    color: var(--bleu-nuit);
+}
+
+/* ==========================================================================
+   PAGE PANIER (panier.html)
+   ========================================================================== */
+.cart-page h1 {
+    color: var(--bleu-nuit);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--beige-chic);
+    padding-bottom: 10px;
+}
+
+.cart-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-items-section {
+    flex: 2;
+}
+
+.cart-summary-section {
+    flex: 1;
+}
+
+/* Ligne d'un article panier */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--blanc);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--beige-chic);
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    color: var(--bleu-nuit);
+    margin-bottom: 5px;
+}
+
+.cart-item-details .item-price {
+    color: var(--bordeaux);
+    font-weight: 600;
+}
+
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    background-color: var(--ivoire-clair);
+    border: 1px solid var(--beige-chic);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.qty-btn:hover {
+    background-color: var(--beige-chic);
+}
+
+.delete-item-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.delete-item-btn:hover {
+    color: var(--bordeaux);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    background: var(--blanc);
+    border-radius: 6px;
+    border: 1px solid var(--beige-chic);
+}
+
+/* Résumé de commande */
+.summary-box {
+    background-color: var(--blanc);
+    border: 1px solid var(--beige-chic);
+    padding: 25px;
+    border-radius: 6px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-box h3 {
+    color: var(--bleu-nuit);
+    margin-bottom: 15px;
+}
+
+.summary-box hr {
+    border: 0;
+    border-top: 1px solid var(--beige-chic);
+    margin: 15px 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total-row {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bleu-nuit);
+}
+
+.total-row span:last-child {
+    color: var(--bordeaux);
+}
+
+/* ==========================================================================
+   FENÊTRE MODALE (Animation de validation)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 43, 68, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: var(--blanc);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-icon {
+    font-size: 3.5rem;
+    color: var(--blanc);
+    background-color: var(--dore);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+}
+
+.modal-content h2 {
+    color: var(--bleu-nuit);
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   PIED DE PAGE
+   ========================================================================== */
+.main-footer {
+    background-color: var(--bleu-nuit);
+    color: var(--ivoire-clair);
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SIMPLE & EFFICACE
+   ========================================================================== */
+@media (min-width: 768px) {
+    .controls-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .cart-layout {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
