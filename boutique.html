@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Boutique — Éclat d'Or</title>
+    <link class="stylesheet" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Éclat d'Or</span>
+                <span class="logo-sparkle">✦</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="boutique.html" class="nav-link active">Boutique</a>
+                <a href="index.html#a-propos" class="nav-link">À propos</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="panier.html" class="nav-link nav-cart">
+                    Panier <span id="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="shop-header">
+        <h1>Notre Boutique</h1>
+        <p>Explorez notre collection exclusive et trouvez les pièces parfaites pour votre garde-robe.</p>
+    </div>
+
+    <div class="controls-container container">
+        <div class="categories-filter" id="categories-container">
+            <button class="filter-btn active" data-category="tous">Tous</button>
+            <button class="filter-btn" data-category="robes">Robes</button>
+            <button class="filter-btn" data-category="hauts">Hauts</button>
+            <button class="filter-btn" data-category="jupes">Jupes</button>
+            <button class="filter-btn" data-category="sous-vetements">Sous-vêtements</button>
+            <button class="filter-btn" data-category="pantalons">Pantalons</button>
+            <button class="filter-btn" data-category="shorts">Shorts</button>
+            <button class="filter-btn" data-category="accessoires">Accessoires</button>
+        </div>
+
+        <div class="sort-wrapper">
+            <label for="sort-select">Trier par : </label>
+            <select id="sort-select" class="sort-dropdown">
+                <option value="defaut">Nouveautés</option>
+                <option value="croissant">Prix croissant</option>
+                <option value="decroissant">Prix décroissant</option>
+            </select>
+        </div>
+    </div>
+
+    <main class="products-section container">
+        <div class="products-grid" id="products-grid">
+            </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Éclat d'Or. Projet étudiant réalisé avec passion.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/boutique.js"></script>
+</body>
+</html>

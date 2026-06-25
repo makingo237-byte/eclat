@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier — Éclat d'Or</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Éclat d'Or</span>
+                <span class="logo-sparkle">✦</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="boutique.html" class="nav-link">Boutique</a>
+                <a href="index.html#a-propos" class="nav-link">À propos</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="panier.html" class="nav-link nav-cart active">
+                    Panier <span id="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cart-page container">
+        <h1>Votre Panier</h1>
+
+        <div class="cart-layout">
+            <div class="cart-items-section" id="cart-items-container">
+                </div>
+
+            <div class="cart-summary-section">
+                <div class="summary-box">
+                    <h3>Résumé de la commande</h3>
+                    <hr>
+                    <div class="summary-row">
+                        <span>Sous-total</span>
+                        <span id="summary-subtotal">0 FCFA</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Livraison</span>
+                        <span id="summary-shipping">3 000 FCFA</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span>Total final</span>
+                        <span id="summary-total">0 FCFA</span>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-primary btn-block">Valider ma commande</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✔</div>
+            <h2>Commande validée !</h2>
+            <p>Merci pour votre confiance. Votre colis Éclat d'Or est déjà en cours de préparation.</p>
+            <button id="close-modal-btn" class="btn btn-secondary">Continuer mes achats</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Éclat d'Or. Projet étudiant réalisé avec passion.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/panier.js"></script>
+</body>
+</html>
